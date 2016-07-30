@@ -1,10 +1,13 @@
 public class Principal{
-    public Principal(){}
+	
     public static void main(String[] args){
+    	Ordenamiento ord= new Ordenamiento();
+    	int[] lista= new int[3000];
+   
         //Metodo Generate Random
         //Metodo Read del archivo
         Scanner keyboard = new Scanner(System.in); //Pequeño menu para ver por cual metodo de ordenamiento se ordenará el archivo
-        int option = 0
+        int option = 0;
         while (option == 0){
 		    System.out.println("[1] Selection Sort");
 		    System.out.println("[2] Insertion Sort");
@@ -26,6 +29,7 @@ public class Principal{
             //METODO INSERTION SORT
         } if (option == 3){
             //METODO MERGE SORT
+            ord.mergeSort(lista,lista.length);
         } if (option == 4){
             //METODO QUICK SORT
         }
