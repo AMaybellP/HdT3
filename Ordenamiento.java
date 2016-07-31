@@ -1,7 +1,7 @@
 
 public class Ordenamiento {
 
-	public static void merge(int data[],int temp[], int low, int middle, int high)
+	public void merge(int data[],int temp[], int low, int middle, int high)
 	{
 		int ri= low;
 		int ti= low;
@@ -23,7 +23,7 @@ public class Ordenamiento {
 			data[ri++]=temp[ti++];
 		}
 	}
-	public static void mergeSortRecursive(int data[], int temp[], int low, int high)
+	public void mergeSortRecursive(int data[], int temp[], int low, int high)
 	{
 		int n= high-low+1;
 		int middle= low + n/2;
@@ -39,22 +39,9 @@ public class Ordenamiento {
 		merge(data,temp,low,middle,high);
 		
 	}
-	public static void mergeSort(int data[], int n)
+	public void mergeSort(int data[], int n)
 	{
 		mergeSortRecursive(data,new int[n],0,n-1);
 	}
-	
-	public static void main(String[] args)
-	{
-		int[] data= {3,4,1,6,9,6,2,3,6,0,1,2,4,6,7,4};
-		
-		mergeSort(data, data.length);
-		
-		for(int i=0; i<16; i++)
-		{
-			System.out.println(data[i]);
-		}
-	}
-		
 
 }
