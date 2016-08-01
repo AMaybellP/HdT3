@@ -26,7 +26,7 @@ public class Principal{
         Scanner keyboard = new Scanner(System.in); 
         int option1 = 0;
         while (option1 == 0){
-		    System.out.print("Ingrese el número de datos que desea procesar (entre 2 y 3000): ");
+		    System.out.print("Ingrese el numero de datos que desea procesar (entre 2 y 3000): ");
 		    try{
 			    option1 = Integer.parseInt(keyboard.nextLine());
 		    } catch (NumberFormatException e){
