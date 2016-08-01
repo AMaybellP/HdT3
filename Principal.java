@@ -56,6 +56,12 @@ public class Principal{
        }
         if (option == 1){
             //METODO SELECTION SORT
+            ord.selectionSort(lista,lista.length);
+            for(int i=0; i<lista.length;i++)
+            {
+            	System.out.println(lista[i]);
+            }
+            System.out.println("Ordenado por Selection!");
         } if (option == 2){
             //METODO INSERTION SORT
             ord.insertionSort(lista,lista.length);
