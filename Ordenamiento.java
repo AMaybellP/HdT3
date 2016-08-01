@@ -44,7 +44,7 @@ public class Ordenamiento {
 		mergeSortRecursive(data,new int[n],0,n-1);
 	}
 
-		//metodo quickSort
+	//metodo quickSort 
 	private static int partition(int data[], int left, int right){
 		while (true){
 			while (left < right && data[left] < data[right]) right--;
