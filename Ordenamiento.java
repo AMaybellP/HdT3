@@ -44,6 +44,31 @@ public class Ordenamiento {
 		mergeSortRecursive(data,new int[n],0,n-1);
 	}
 
+		//metodo quickSort
+	private static int partition(int data[], int left, int right){
+		while (true){
+			while (left < right && data[left] < data[right]) right--;
+			if (left < right){
+				swap(data,left++,right);
+			}
+			else return left;
+	while (left < right && data[left] < data[right]) left++;
+		if (left < right) swap(data,left,right--);
+		else return right;
+		}
+	} 
+	
+	public static void quickSort(int data[], int n){
+		quickSortRecursive(data,0,n-1);
+	}
+
+	private static void quickSortRecursive(int data[],int left,int right){
+		if (left >= right) return;
+		pivot = partition(data,left,right); /* 1 - place pivot */
+		quickSortRecursive(data,left,pivot-1); /* 2 - sort small */
+		quickSortRecursive(data,pivot+1,right);/* 3 - sort large */
+	}	
+	
 	//metodo selectionSort
 	public static void selectionSort(int data[], int n){
 
