@@ -78,26 +78,7 @@ public class Ordenamiento {
 	}	
 	
 	//metodo selectionSort
-	public static void selectionSort(int data[], int n){
-
-	int numUnsorted = n;
-	int index; 
-	int max; 
-
-	while (numUnsorted > 0){
-
-	max = 0;
-	for (index = 1; index < numUnsorted; index++){
-
-	if (data[max] < data[index]) max = index;
-	}
-
-	swap(data,max,numUnsorted-1);
-	numUnsorted--;
-	}
-}
-
-	void selectionSort(int data[], int n) {
+	public static void selectionSort(int data[], int n) {
       	int i, j, index, max;    
       	for (i = 0; i < n - 1; i++) {
             index = i;
