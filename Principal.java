@@ -51,6 +51,12 @@ public class Principal{
             //METODO SELECTION SORT
         } if (option == 2){
             //METODO INSERTION SORT
+            ord.insertionSort(lista,lista.length);
+            for(int i=0; i<lista.length; i++)
+            {
+            	System.out.println(lista[i]);
+            }
+            System.out.println("Ordenado por Insertion!");
         } if (option == 3){
         	//METODO MERGE SORT
             ord.mergeSort(lista, lista.length);
