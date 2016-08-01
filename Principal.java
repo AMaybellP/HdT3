@@ -80,6 +80,12 @@ public class Principal{
             System.out.println("Ordenado por Merge!");
         } if (option == 4){
             //METODO QUICK SORT
+        	ord.quickSort(lista, lista.length);
+            for(int i=0; i<lista.length; i++)
+            {
+            	System.out.println(lista[i]);
+            }
+            System.out.println("Ordenado por Quick!");
         }
     }
 }
