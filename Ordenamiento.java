@@ -78,4 +78,21 @@ void selectionSort(int data, int n) {
             }
       }
 }
+	public static void insertionSort(int data[], int n){
+		//n = data.length
+		int x = 1; //posicion del valor a ordenar
+		int index; //posicion de datos a evaluar
+		while (x < n){
+			int temp = data[x];//valor a ordenar en variable temporal
+			for (index = x; index > 0; index--){
+				if (temp < data[index-1]){
+					data[index] = data[index-1]; //cambia los valores de lugar
+				} else{
+					break;
+				}
+			}
+			data[index] = temp; //en index debido a la ultima corrida del for
+			x++;
+		}
+	}
 }
