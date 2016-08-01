@@ -1,4 +1,12 @@
-
+/**
+ * Clase: JUnit
+ * @author Gladys De La Roca 15755
+ * @author Andrea Pena 15127
+ * @author Jackeline Hidalgo 15776
+ * @author Rene Olivet 15238
+ * Los códigos mergeSort, quickSort, selectionSort y insertionSort fueron tomados de: Java Structures:Data Structure
+ * for the Principled Programmer.
+ */
 public class Ordenamiento {
 	//metodo mergesort
 	public void merge(int data[],int temp[], int low, int middle, int high)
