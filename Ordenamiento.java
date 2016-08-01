@@ -1,6 +1,6 @@
 
 public class Ordenamiento {
-
+	//metodo mergesort
 	public void merge(int data[],int temp[], int low, int middle, int high)
 	{
 		int ri= low;
@@ -44,8 +44,8 @@ public class Ordenamiento {
 		mergeSortRecursive(data,new int[n],0,n-1);
 	}
 
-
-public static void selectionSort(int data[], int n){
+	//metodo selectionSort
+	public static void selectionSort(int data[], int n){
 
 	int numUnsorted = n;
 	int index; 
@@ -64,9 +64,9 @@ public static void selectionSort(int data[], int n){
 	}
 }
 
-void selectionSort(int data, int n) {
-      int i, j, index, max;    
-      for (i = 0; i < n - 1; i++) {
+	void selectionSort(int data, int n) {
+      	int i, j, index, max;    
+      	for (i = 0; i < n - 1; i++) {
             index = i;
             for (j = i + 1; j < n; j++)
                   if (data[j] < data[index])
@@ -78,6 +78,7 @@ void selectionSort(int data, int n) {
             }
       }
 }
+	//metodo insertionSort
 	public static void insertionSort(int data[], int n){
 		//n = data.length
 		int x = 1; //posicion del valor a ordenar
