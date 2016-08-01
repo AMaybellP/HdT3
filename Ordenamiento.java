@@ -53,6 +53,7 @@ public class Ordenamiento {
 	}
 
 	//metodo quickSort 
+	int partition(int arr[], int left, int right)
 	{
 	      int i = left, j = right;
 	      int tmp;
@@ -87,6 +88,7 @@ public class Ordenamiento {
 	{
 	quickSortRecursive(data,0,n-1);
 	}
+	
 	
 	
 	//metodo selectionSort
