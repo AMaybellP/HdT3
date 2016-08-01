@@ -1,3 +1,10 @@
+/**
+ * Clase: JUnit
+ * @author Gladys De La Roca 15755
+ * @author Andrea Pena 15127
+ * @author Jackeline Hidalgo 15776
+ * @author Rene Olivet 15238
+ */
 import static org.junit.Assert.*;
 
 import org.junit.Test;
