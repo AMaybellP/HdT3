@@ -1,5 +1,5 @@
 /**
- * Clase: JUnit
+ * Clase: Ordenamiento
  * @author Gladys De La Roca 15755
  * @author Andrea Pena 15127
  * @author Jackeline Hidalgo 15776
