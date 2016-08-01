@@ -53,29 +53,41 @@ public class Ordenamiento {
 	}
 
 	//metodo quickSort 
-	private static int partition(int data[], int left, int right){
-		while (true){
-			while (left < right && data[left] < data[right]) right--;
-			if (left < right){
-				swap(data,left++,right);
-			}
-			else return left;
-	while (left < right && data[left] < data[right]) left++;
-		if (left < right) swap(data,left,right--);
-		else return right;
-		}
-	} 
-	
-	public static void quickSort(int data[], int n){
-		quickSortRecursive(data,0,n-1);
+	{
+	      int i = left, j = right;
+	      int tmp;
+	      int pivot = arr[(left + right) / 2];
+	     
+	      while (i <= j) {
+	            while (arr[i] < pivot)
+	                  i++;
+	            while (arr[j] > pivot)
+	                  j--;
+	            if (i <= j) {
+	                  tmp = arr[i];
+	                  arr[i] = arr[j];
+	                  arr[j] = tmp;
+	                  i++;
+	                  j--;
+	            }
+	      };
+	     
+	      return i;
 	}
-
-	private static void quickSortRecursive(int data[],int left,int right){
-		if (left >= right) return;
-		pivot = partition(data,left,right); /* 1 - place pivot */
-		quickSortRecursive(data,left,pivot-1); /* 2 - sort small */
-		quickSortRecursive(data,pivot+1,right);/* 3 - sort large */
-	}	
+	 
+	void quickSortRecursive(int arr[], int left, int right) {
+	      int index = partition(arr, left, right);
+	      if (left < index - 1)
+	            quickSortRecursive(arr, left, index - 1);
+	      if (index < right)
+	            quickSortRecursive(arr, index, right);
+	}
+	
+	public void quickSort(int data[], int n)
+	{
+	quickSortRecursive(data,0,n-1);
+	}
+	
 	
 	//metodo selectionSort
 	public static void selectionSort(int data[], int n) {
