@@ -97,7 +97,7 @@ public class Ordenamiento {
 	}
 }
 
-	void selectionSort(int data, int n) {
+	void selectionSort(int data[], int n) {
       	int i, j, index, max;    
       	for (i = 0; i < n - 1; i++) {
             index = i;
@@ -111,6 +111,7 @@ public class Ordenamiento {
             }
       }
 }
+
 	//metodo insertionSort
 	public static void insertionSort(int data[], int n){
 		//n = data.length
