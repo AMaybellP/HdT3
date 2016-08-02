@@ -1,127 +1,168 @@
 /**
- * Clase: RandomClass
+ * Clase: Principal
  * @author Gladys De La Roca 15755
  * @author Andrea Pena 15127
  * @author Jackeline Hidalgo 15776
  * @author Rene Olivet 15238
  */
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Random;
+import java.util.Scanner;
 
-public class RandomClass {
+public class Principal{
 	
-	private int[] listas= new int[3000];
-
-	public int[] generarLista()
-	{
-		Random generador= new Random();
-		for (int i=0; i<3000; i++)
-		{
-			int randomNum = generador.nextInt(100);
-			listas[i]= randomNum;
-		}
-		return listas;
-	}
-	
-	public String listaString()
-	{
-		String stringL= "";
-		for (int i=0; i<listas.length; i++)
-		{
-			stringL= stringL+String.valueOf(listas[i])+" ";
-		}
-		//System.out.println(stringL);
-		return stringL;
-	}
-	
-	public void crearArchivo(String archivo, String list) throws FileNotFoundException
-	{
-		PrintWriter writer= new PrintWriter(archivo);
-		writer.println(list);
-		writer.close();
-	}
-	
-	//Metodo que lee un txt y devuelve un string con lo escrito dentro
-	public String LeerArchivo(String direccion) {
-	      // Leer una linea a la vez 
-	       String line = null;
-
-	       try {
-	           // FileReader lee el texto 
-	           FileReader fileReader = new FileReader(direccion);
-	           BufferedReader bufferedReader =  new BufferedReader(fileReader);
-
-	            while((line = bufferedReader.readLine()) != null) {
-	                return line;
-	            }   
-
-	            // Cerrar el texto 
-	            bufferedReader.close();         
-	        }
-	        //Si no logra abir el archivo mandar un mensaje 
-	        catch(IOException ex) {
-	            System.out.println("No se pudo leer el archivo '" + direccion + "'");                  
-	        }
-	        return line;
-	       
-	    }
-	
-	//forma la lista dependiendo el número de enteros que se desee procesar
-	public int[] crearLista(String direccion)
-	{
-		int[] listaInts= new int[3000];
-		String listaS= LeerArchivo(direccion);
-		//System.out.println("lista leida: "+listaS); //DEBUG
-		char[] cadena= listaS.toCharArray();
-		int [] nums= {0,0};
-		int k=1;
-		int c=0;
-		
-		for(char i: cadena)
-		{
-			//Verificar si es un numero 
-			int num= Character.getNumericValue(i);
-			
-			if(num!=-1)
-			{
-				nums[k]=num;
-				k--;
-			}
-			else
-			{
-				int numero= (nums[1]*10)+(nums[0]);
-				//System.out.println("numero"+c+": "+numero);//DEBUG
-				listaInts[c]=numero;
-				nums[0]=0;
-				nums[1]=0;
-				k=1;
-				c++;
-			}
-		}
-		
-		return listaInts;
-	}
-	
-	public int[] cortarLista(int n)
-	{
-		int[] listaCortada= new int[n];
-		for(int i=0; i<n; i++)
-		{
-			listaCortada[i]= listas[i];
-		}
-		return listaCortada;
-	}
-
-	public int[] getListas() {
-		return listas;
-	}
-
-	public void setListas(int[] listas) {
-		this.listas = listas;
-	}
-
+    public static void main(String[] args) throws FileNotFoundException{
+    	Ordenamiento ord= new Ordenamiento();
+    	RandomClass random= new RandomClass();
+    	//int[] lista= random.generarLista();
+    	
+        //Metodo Generate Random
+    	random.generarLista();
+    	
+        //Metodo Read del archivo
+    	random.crearArchivo("archivo.txt", random.listaString());
+    	
+    	//selección de la cantidad de datos a procesar
+        Scanner keyboard = new Scanner(System.in); 
+        int option1 = 0;
+        while (option1 == 0){
+		    System.out.print("Ingrese el numero de datos que desea procesar (entre 2 y 3000): ");
+		    try{
+			    option1 = Integer.parseInt(keyboard.nextLine());
+		    } catch (NumberFormatException e){
+			    System.out.println();
+			    System.out.println("Error: opcion invalida");
+			    System.out.println();
+			    option1 = 0;
+		    }
+       }
+        
+        int option2 = 0;
+        while (option2 == 0){
+		    System.out.println("[1] Ordenar un random");
+		    System.out.println("[2] Ordenar una lista ordenada");
+		    System.out.print("Seleccione la accion que desea realizar: ");
+		    try{
+			    option2 = Integer.parseInt(keyboard.nextLine());
+		    } catch (NumberFormatException e){
+			    System.out.println();
+			    System.out.println("Error: opcion invalida");
+			    System.out.println();
+			    option2 = 0;
+		    }
+       }
+        if (option2 == 1){
+            //Ordenar random
+        	random.crearLista("archivo.txt");
+            int[] lista= random.cortarLista(option1);
+            
+            int option = 0;
+            while (option == 0){
+    		    System.out.println("[1] Selection Sort");
+    		    System.out.println("[2] Insertion Sort");
+    		    System.out.println("[3] Merge Sort");
+    		    System.out.println("[4] Quick Sort");
+    		    System.out.print("Elija el metodo de ordenamiento que desea: ");
+    		    try{
+    			    option = Integer.parseInt(keyboard.nextLine());
+    		    } catch (NumberFormatException e){
+    			    System.out.println();
+    			    System.out.println("Error: opcion invalida");
+    			    System.out.println();
+    			    option = 0;
+    		    }
+           }
+            if (option == 1){
+                //METODO SELECTION SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Selection!");
+            } if (option == 2){
+                //METODO INSERTION SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Insertion!");
+            } if (option == 3){
+            	//METODO MERGE SORT
+            	/*ordenar random*/
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Merge!");
+            } if (option == 4){
+                //METODO QUICK SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Quick!");
+            }
+            
+        } if (option2 == 2){
+            //Ordenar lista ordenada
+        	random.crearLista("ordenado.txt");
+            int[] lista= random.cortarLista(option1);
+            int option = 0;
+            while (option == 0){
+    		    System.out.println("[1] Selection Sort");
+    		    System.out.println("[2] Insertion Sort");
+    		    System.out.println("[3] Merge Sort");
+    		    System.out.println("[4] Quick Sort");
+    		    System.out.print("Elija el metodo de ordenamiento que desea: ");
+    		    try{
+    			    option = Integer.parseInt(keyboard.nextLine());
+    		    } catch (NumberFormatException e){
+    			    System.out.println();
+    			    System.out.println("Error: opcion invalida");
+    			    System.out.println();
+    			    option = 0;
+    		    }
+           }
+            if (option == 1){
+                //METODO SELECTION SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Selection!");
+            } if (option == 2){
+                //METODO INSERTION SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Insertion!");
+            } if (option == 3){
+            	//METODO MERGE SORT
+            	/*ordenar random*/
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Merge!");
+            } if (option == 4){
+                //METODO QUICK SORT
+                ord.mergeSort(lista, lista.length);
+                for(int i=0; i<lista.length; i++)
+                {
+                	System.out.println(lista[i]);
+                }
+                System.out.println("Ordenado por Quick!");
+            }
+        } 
+        
+        
+       
+    }
 }
