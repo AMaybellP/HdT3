@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class PilaTest {
-
-	    @Test //selectionSort Test
+public class OrdenamientoText {
+	//selectionSort Test
+	@Test 
     public void testselectionSort() {
         System.out.println("SelectionSort test");
         Lista prueba = new Lista();
@@ -19,8 +19,8 @@ public class PilaTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-
-    @Test //mergeSort Test
+	//mergeSort Test
+    	@Test 
     public void testmergeSort() {
         System.out.println("MergeSort test");
         Comparable[] lista = null;
@@ -29,8 +29,8 @@ public class PilaTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-
-    @Test //insertionSort Test
+	//insertionSort Test
+    	@Test 
     public void testinsertionSort() {
         System.out.println("InsertionSort test");
         Lista prueba = new Lista();
@@ -38,8 +38,8 @@ public class PilaTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    
-    @Test //quickSort test
+    	//quickSort test
+    	@Test 
       public void testquickSort() {
         System.out.println("QuickSort test");
         List<Integer> lista1 = null;
