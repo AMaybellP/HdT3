@@ -72,11 +72,13 @@ public class Principal{
             System.out.println("Ordenado por Insertion!");
         } if (option == 3){
         	//METODO MERGE SORT
+        	/*ordenar random*/
             ord.mergeSort(lista, lista.length);
-            for(int i=0; i<lista.length; i++)
-            {
-            	System.out.println(lista[i]);
-            }
+            /*crear archivo ordenado*/
+            random.setListas(lista);
+            random.crearArchivo("ordenado.txt", random.listaString());
+            /*ordenar archivo ordenado*/
+            ord.mergeSort(random.crearLista("ordenado.txt"), random.crearLista("ordenado.txt").length);
             System.out.println("Ordenado por Merge!");
         } if (option == 4){
             //METODO QUICK SORT
